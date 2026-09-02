@@ -22,19 +22,9 @@ module "minio" {
   depends_on = [module.kong]
 }
 
-module "loki" {
-  source = "./modules/loki"
-  depends_on = [module.minio]
-}
-
-module "promtail" {
-  source = "./modules/promtail"
-  depends_on = [module.loki]
-}
-
 module "prometheus" {
   source = "./modules/prometheus"
-  depends_on = [module.promtail]
+  depends_on = [module.minio]
 }
 
 module "grafana" {
@@ -47,3 +37,7 @@ module "ingress" {
   depends_on = [module.grafana]
 }
 
+module "blockscout" {
+  source = "./modules/blockscout"
+  depends_on = [module.ingress]
+}
