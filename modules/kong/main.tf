@@ -24,7 +24,7 @@ resource "helm_release" "kong" {
     # Kong proxy replicas
     {
       name  = "proxy.replicas"
-      value = "2"
+      value = "3"
     },
 
     # AWS LoadBalancer
