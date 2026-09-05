@@ -24,7 +24,7 @@ module "keda" {
 
 module "minio" {
   source = "./modules/minio"
-  depends_on = [module.keda"]
+  depends_on = [module.keda]
 }
 
 module "prometheus" {
