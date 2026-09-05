@@ -1,7 +1,7 @@
 replicas: 2
 
 
-adminUser: admin
+adminUser: root
 adminPassword: q1w2e3r4100@
 
 
