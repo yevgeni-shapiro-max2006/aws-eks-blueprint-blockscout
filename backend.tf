@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "apps-terraform"
+    bucket = "apps-terraform-clusters"
     key    = "eks-blockscout/terraform.tfstate"
-    region = "eu-west-1"
+    region = "eu-central-1"
   }
 }
