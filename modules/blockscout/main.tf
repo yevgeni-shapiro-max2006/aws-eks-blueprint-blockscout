@@ -3,7 +3,7 @@ resource "helm_release" "blockscout" {
   name       = "blockscout"
   repository = "https://blockscout.github.io/helm-charts"
   chart      = "blockscout-stack"
-  version    = "9.1.0"
+  version    = "4.5.3"
 
   namespace        = "blockscout"
   create_namespace = true
