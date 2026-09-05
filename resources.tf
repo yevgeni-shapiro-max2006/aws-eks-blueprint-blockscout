@@ -46,3 +46,5 @@ module "blockscout" {
   source = "./modules/blockscout"
   depends_on = [module.keda]
 }
+
+
