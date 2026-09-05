@@ -45,6 +45,11 @@ module "ingress" {
 module "blockscout" {
   source = "./modules/blockscout"
   depends_on = [module.ingress]
+
+  blockscout_postgresql_password = var.blockscout_postgresql_password
+  blockscout_rpc_url              = var.blockscout_rpc_url
+  blockscout_network              = var.blockscout_network
+  blockscout_hostname             = var.blockscout_hostname
 }
 
 
