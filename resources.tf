@@ -17,9 +17,14 @@ module "kong" {
   depends_on = [module.httpd]
 }
 
+module "keda" {
+  source = "./modules/keda"
+  depends_on = [module.kong]
+}
+
 module "minio" {
   source = "./modules/minio"
-  depends_on = [module.kong]
+  depends_on = [module.keda"]
 }
 
 module "prometheus" {
@@ -37,14 +42,9 @@ module "ingress" {
   depends_on = [module.grafana]
 }
 
-module "keda" {
-  source = "./modules/keda"
-  depends_on = [module.ingress]
-}
-
 module "blockscout" {
   source = "./modules/blockscout"
-  depends_on = [module.keda]
+  depends_on = [module.ingress]
 }
 
 
