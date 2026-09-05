@@ -37,7 +37,12 @@ module "ingress" {
   depends_on = [module.grafana]
 }
 
+module "keda" {
+  source = "./modules/keda"
+  depends_on = [module.ingress]
+}
+
 module "blockscout" {
   source = "./modules/blockscout"
-  depends_on = [module.ingress]
+  depends_on = [module.keda]
 }
